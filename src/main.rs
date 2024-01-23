@@ -13,9 +13,9 @@ struct Opt {
 fn main() -> Result<(), anyhow::Error> {
     let opt = Opt::parse();
 
-    let wav_data = record_audio::record_audio(4)?;
-    //println!("{:?}", wav_data);
-    //std::fs::write("output.wav", &wav_data)?;
+    let wav_data = record_audio::record_audio(5)?;
+    println!("{:?}", wav_data);
+    record_audio::write_wav_file(&wav_data, "output.wav")?;
 
     Ok(())
 }
